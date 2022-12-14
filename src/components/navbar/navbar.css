@@ -15,7 +15,14 @@
 }
 
 .logo{
-  font-weight: 500;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+h4 > span {
+  font-size: 20px;
+  /* color: red; */
+  text-transform: capitalize;
 }
 
 .navButton{

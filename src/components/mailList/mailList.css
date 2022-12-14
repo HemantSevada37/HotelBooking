@@ -29,3 +29,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.mailError {
+  /* color: red; */
+  font-weight: 400;
+  height: 12px;
+}

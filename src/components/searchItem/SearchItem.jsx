@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import "./searchItem.css";
 
 const SearchItem = ({ele}) => {
-  console.log(ele);
+  // console.log(ele);
   const {name, img, price, rating} = {...ele};
-  console.log(name, img, price, rating);
+  // console.log(name, img, price, rating);
   const navigate = useNavigate();
 
   const fun=()=>{
