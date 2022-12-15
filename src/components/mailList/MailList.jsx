@@ -5,7 +5,7 @@ import "./mailList.css"
 
 const MailList = () => {
   const[newEmail, setNewEmail] = useState("");
-  const[error, setError] = useState("as");
+  const[error, setError] = useState("");
 
   const addEmail = async ()=>{
     if(!newEmail.includes('@')){

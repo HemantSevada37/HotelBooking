@@ -15,6 +15,10 @@ const Navbar = () => {
   const handleRegister=()=>{
     navigate("/login", {state: true});
   }
+  const handleLogout =()=>{
+    localStorage.removeItem("hotelUser");
+    setUserName(null);
+  }
   const returnHome = () =>{
     navigate("/");
   }
@@ -26,8 +30,13 @@ const Navbar = () => {
         <h2 className="logo" onClick={returnHome}>Bookings</h2>
         {userName && <h4>Welcome, <span>{userName}</span></h4>}
         <div className="navItems">
-          <button className="navButton" onClick={handleLogin}>Register</button>
-          <button className="navButton" onClick={handleRegister}>Login</button>
+          {userName ? 
+              <button className="navButton" onClick={handleLogout}>Logout</button>
+              :
+            <>
+              <button className="navButton" onClick={handleLogin}>Register</button>
+              <button className="navButton" onClick={handleRegister}>Login</button>
+            </>}
         </div>
       </div>
     </div>
