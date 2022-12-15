@@ -23,6 +23,14 @@ const Login = () => {
   const handleLogin = (e) => {
     setError("");
     e.preventDefault();
+    if(!email.includes('@')){
+      setError("Please enter correct Email");
+      return;
+    }
+    if(password.length < 6){
+      setError("password length should be greater than 5");
+      return;
+    }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -81,11 +89,13 @@ const Login = () => {
         <input
           type="email"
           placeholder="email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="loginButtons">

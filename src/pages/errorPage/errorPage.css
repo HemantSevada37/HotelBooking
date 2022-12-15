@@ -1,0 +1,29 @@
+.errorpage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.epContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.epButton {
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #0071c2;
+    color: #0071c2;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .epButton:hover {
+    background-color: #0071c2;
+    color: white;
+  }
