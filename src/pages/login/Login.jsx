@@ -3,7 +3,6 @@ import "./login.css";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-// import {AuthContext} from "../../context/AuthContext"
 import { useLocation } from 'react-router-dom';
 
 
@@ -15,10 +14,6 @@ const Login = () => {
   const [activeButton, setActiveButton] = useState(location.state);
 
   const navitage = useNavigate()
-  
-  // setActiveButton(location.state);
-
-  // const {dispatch} = useContext(AuthContext)
 
   const handleLogin = (e) => {
     setError("");
@@ -28,20 +23,17 @@ const Login = () => {
       return;
     }
     if(password.length < 6){
-      setError("password length should be greater than 5");
+      setError("password length should be longer than 5");
       return;
     }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log(user.email.split('@')[0]);
         setEmail("");
         setPassword("");
-        // dispatch({type:"LOGIN", payload:user})
         localStorage.setItem("hotelUser", JSON.stringify(user.email.split('@')[0]));
         navitage("/");
-        // navitage("/", {state: {userName: (user.email.split('@')[0])}})
       })
       .catch((error) => {
         setError("Wrong email or password!");
@@ -56,23 +48,21 @@ const Login = () => {
       return;
     }
     if(password.length < 6){
-      setError("password length should be greater than 5");
+      setError("password length should be longer than 5");
       return;
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
-        // const user = userCredential.user;
+        const user = userCredential.user;
         // console.log(user);
         setEmail("");
         setPassword("");
-        // ...
+        localStorage.setItem("hotelUser", JSON.stringify(user.email.split('@')[0]));
+        navitage("/");
       })
       .catch((error) => {
         console.log("error");
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // ..
       });
 
   }
@@ -102,22 +92,22 @@ const Login = () => {
           {activeButton ?
           <>
               <button onClick={handleLogin} 
-                  className="activeButton"
                   >Login</button>
-              <button onClick={(event)=>{handleActiveButton(event, false)}}
-                  >Register</button>
+                  <p>Don't have a account?
+                    <span onClick={(event)=>{handleActiveButton(event, false)}}
+                    >Register</span></p>
             </>
           :
             <>
-                <button onClick={(event)=>{handleActiveButton(event, true)}} 
-                    >Login</button>
                 <button onClick={handleRegister}
-                    className="activeButton"
                   >Register</button>
+                  <p>Already have a account?
+                    <span onClick={(event)=>{handleActiveButton(event, true)}}
+                    >Login</span></p>
             </>
           }
         </div>
-        {error && <span>{error}</span>}
+        <span>{error}</span>
       </form>
     </div>
   );

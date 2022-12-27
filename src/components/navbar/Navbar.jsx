@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import {faWhatsapp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./navbar.css"
 
 const Navbar = () => {
@@ -39,6 +41,11 @@ const Navbar = () => {
             </>}
         </div>
       </div>
+        <a className="help">
+        {/* <FontAwesomeIcon icon={fa-whatsapp} /> */}
+        <FontAwesomeIcon icon="fawhatsapp" />
+        <span>Help</span>
+        </a>
     </div>
   )
 }

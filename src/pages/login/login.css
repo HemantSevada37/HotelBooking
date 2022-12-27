@@ -3,6 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("./bg.png");
+    background-position: center;
 }
 .login > form{
       display: flex;
@@ -16,25 +18,39 @@
       }
 .loginButtons {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       /* flex-direction: row; */
       gap: 20px;
       }
-.loginButtons > button{
-        width: 95px;
-        height: 30px;
-        border: none;
-        /* background-color: purple; */
-        /* color: purple; */
-        font-weight: bold;
-        cursor: pointer;
-      }
-.activeButton {
-      background-color: purple;
-      color: white;
+.loginButtons > p {
+      font-size: 14px;
+
+}
+.loginButtons > p > span {
+      color: #003580;
+      text-decoration: underline;
+      margin-left: 5px;
+}
+.loginButtons > p > span:hover {
+      color: red;
 }
 
+.loginButtons > button{
+        width: 100px;
+        height: 30px;
+        border: none;
+        background-color: purple;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
 .login > form > span{
-        font-size: 12px;
+        font-size: 14px;
         color: red;
         margin-top: 10px;
+        height: 15px;
       }
