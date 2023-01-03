@@ -22,7 +22,7 @@ const FeaturedProperties = () => {
      price: 9900,
      rating: 8.2,
      comment: "Excellent",
-     photo: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/232902339.jpg?k=3947def526b8af0429568b44f9716e79667d640842c48de5e66fd2a8b776accd&o=&hp=1"
+     photo: "https://q-xx.bstatic.com/xdata/images/xphoto/300x240/45450084.jpeg?k=f8c2954e867a1dd4b479909c49528531dcfb676d8fbc0d60f51d7b51bb32d1d9&o="
     },
     {city: "Jaipur",
      name: "Hilton Garden Inn",
